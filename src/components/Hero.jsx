@@ -6,9 +6,9 @@ import Carousel from 'react-material-ui-carousel';
 import { makeStyles } from '@mui/styles';
 const images = [
   // Add your image URLs or components here
-  'https://cdn.thuvienphapluat.vn/uploads/tintuc/2022/09/17/xay-dung-nha-o-rieng-le.png',
-  'https://static1.cafeland.vn/cafelandnew/hinh-anh/2023/10/19/223ce2973aa46ab4f5b9be6c3eab44ff.jpg',
-  // ...
+  '/image1.jpg',
+  '/image2.jpg',
+  '/image5.png'
 ];
 
 const useStyles = makeStyles((theme) => ({

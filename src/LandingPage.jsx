@@ -17,6 +17,7 @@ import Testimonials from './components/Testimonials';
 import FixedOptions from './components/FixedOptions';
 import Footer from './components/Footer';
 import getLPTheme from './getLPTheme';
+import HighlightsLastYear from './components/HighlightsLastYear';
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
   return (
@@ -76,6 +77,8 @@ export default function LandingPage() {
       <Box sx={{ bgcolor: 'background.default' }}>
         {/* <LogoCollection /> */}
         <Features />
+        <Divider />
+        <HighlightsLastYear/>
         <Divider />
         <Testimonials />
         <Divider />

@@ -9,6 +9,12 @@ import emailjs from 'emailjs-com';
 
 export default function ContactSection() {
 
+   const serviceId = process.env.REACT_APP_EMAIL_JS_SERVICE_ID;
+   const templateId = process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID;
+   const userId = process.env.REACT_APP_EMAIL_JS_USER_ID;
+
+  // console.log({serviceId:serviceId, templateId: templateId,  userId: userId})
+
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
 
 
@@ -27,10 +33,10 @@ export default function ContactSection() {
     setLoading(true); // Hiện trạng thái loading
     emailjs
       .send(
-        'service_drmrbhb',  // Lấy từ EmailJS
-        'template_hiyj7ds', // Lấy từ EmailJS
+        serviceId,  // Lấy từ EmailJS
+        templateId, // Lấy từ EmailJS
         form,
-        'iFPUR1wa6a8oWXBhJ'   // Lấy từ EmailJS
+       userId  // Lấy từ EmailJS
       )
       .then(() => {
         setToast({ open: true, message: 'Gửi mail thành công!', severity: 'success' });
@@ -63,7 +69,7 @@ export default function ContactSection() {
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center">
                 <PhoneIcon color="primary" />
-                <Typography variant="body2">(+84) 912 345 678</Typography>
+                <Typography variant="body2">(+84) 984 097 889</Typography>
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center">
                 <EmailIcon color="primary" />
@@ -99,7 +105,7 @@ export default function ContactSection() {
                 <TextField
                   fullWidth
                   required
-                  placeholder="Nhập họ và tên"
+                  placeholder="Nhập họ và tên của bạn"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
@@ -116,7 +122,7 @@ export default function ContactSection() {
                   fullWidth
                   required
                   type="email"
-                  placeholder="Nhập email"
+                  placeholder="Nhập email của bạn"
                   name="email"
                   value={form.email}
                   onChange={handleChange}
@@ -132,7 +138,7 @@ export default function ContactSection() {
                 <TextField
                   fullWidth
                   required
-                  placeholder="Nhập số điện thoại"
+                  placeholder="Nhập số điện thoại của bạn"
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
@@ -148,7 +154,7 @@ export default function ContactSection() {
                 <TextField
                   fullWidth
                   required
-                  placeholder="Nhập nội dung tin nhắn"
+                  placeholder="Nhập nội dung tin nhắn của bạn"
                   multiline
                   rows={4}
                   name="message"

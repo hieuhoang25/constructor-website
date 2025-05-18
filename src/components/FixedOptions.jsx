@@ -30,17 +30,31 @@ export default function FixedOptions() {
   return (
     <div style={{ position: 'fixed', zIndex : '10000', bottom: 20, right: 20, display: 'flex', flexDirection: 'column' ,  gap: '10px'}}>
             <div className={classes.container}>
-            <Fab color="primary" aria-label="phone" className={classes.button} >
+            <Fab color="primary" aria-label="phone" className={classes.button}   
+            component="a"
+                href={process.env.REACT_APP_PHONE_NUMBER}
+  >
         <PhoneIcon />
       </Fab>
         </div>
         <div className={classes.container}>
-      <Fab color="primary" aria-label="facebook">
+      <Fab  color="primary"
+           aria-label="facebook"
+           component="a"
+           href={process.env.REACT_APP_FACE_BOOK_PAGE}
+          target="_blank"
+          rel="noopener noreferrer"
+          >
         <FacebookIcon />
       </Fab>
       </div>
       <div className={classes.container}>
-      <Fab color="primary" aria-label="message">
+      <Fab color="primary" aria-label="message" 
+      component = "a"
+        href={process.env.REACT_APP_ZALO_CHAT}
+      target="_blank"
+    el="noopener noreferrer"
+      >
         <MessageIcon />
       </Fab>
       </div>

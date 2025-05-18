@@ -32,7 +32,7 @@ export default function Features() {
           Công ty <b>TNHH Kiến Trúc Xây Dựng</b> 
           <b> Thiên Đăng </b>  
           cam kết sẽ luôn đồng hành cùng khách hàng từ những ý tưởng ban đầu đến khi dự án hoàn thiện, 
-          đem lại sự hài lòng cao nhất. Với phương châm <b>"Kiến tạo giá trị - Xây dựng niềm tin"</b>, 
+          đem lại sự hài lòng cao nhất. Với phương châm <b>"Xây niềm tin vững, dựng uy tín vàng"</b>, 
           <b> Thiên Đăng </b>  
           tin tưởng rằng mỗi công trình là một tác phẩm nghệ thuật, thể hiện niềm tự hào và tâm huyết của toàn bộ đội ngũ.
         </Typography>

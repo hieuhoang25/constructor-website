@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Container, Grid, Typography, IconButton, Stack } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import MessageIcon from '@mui/icons-material/Message';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -18,7 +18,7 @@ export default function Footer() {
               Công Ty TNHH Kiến Trúc Xây Dựng Thiên Đăng
             </Typography>
             <Typography variant="body2">
-              "Kiến tạo giá trị - Xây dựng niềm tin"
+              "Xây niềm in vững, dựng uy tín vàng"
             </Typography>
           </Grid>
 
@@ -40,7 +40,7 @@ export default function Footer() {
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center">
                 <PhoneIcon fontSize="small" />
-                <Typography variant="body2">(+84) 912 345 678</Typography>
+                <Typography variant="body2">(+84) 984 097 889</Typography>
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center">
                 <EmailIcon fontSize="small" />
@@ -55,11 +55,14 @@ export default function Footer() {
               Kết Nối Với Chúng Tôi
             </Typography>
             <Stack direction="row" spacing={2}>
-              <IconButton href="#" color="primary" sx={{ bgcolor: 'white' }}>
+              <IconButton        href={process.env.REACT_APP_PHONE_NUMBER} color="primary" sx={{ bgcolor: 'white' }}>
+                 <PhoneIcon />
+              </IconButton>
+              <IconButton     href={process.env.REACT_APP_FACE_BOOK_PAGE} color="primary" sx={{ bgcolor: 'white' }}>
                 <FacebookIcon />
               </IconButton>
-              <IconButton href="#" color="primary" sx={{ bgcolor: 'white' }}>
-                <LinkedInIcon />
+              <IconButton      href={process.env.REACT_APP_ZALO_CHAT}color="primary" sx={{ bgcolor: 'white' }}>
+                <MessageIcon />
               </IconButton>
             </Stack>
           </Grid>

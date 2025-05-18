@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Container, Grid, Card, CardMedia, CardContent, Typography, Modal, IconButton } from '@mui/material';
+import {
+  Box,
+  Container,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Modal,
+  IconButton
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,66 +19,33 @@ import { Navigation } from 'swiper/modules';
 const projects = [
   {
     id: 1,
-    title: 'Dự án Nhà Phố Hiện Đại',
-    description: 'Một thiết kế nhà phố hiện đại với không gian mở.',
-    images: [
-      'https://picsum.photos/600/400?random=1',
-      'https://picsum.photos/600/400?random=2',
-      'https://picsum.photos/600/400?random=3'
-    ],
+    title: 'Nhà Phố Hiện Đại',
+    description:
+      'Thiết kế nhà phố tầng theo phong cách hiện đại, sử dụng tối đa ánh sáng tự nhiên, không gian mở kết nối giữa phòng khách và bếp, mang đến sự thông thoáng và tiện nghi cho gia chủ.',
+    images: ['/nhapho.jpeg', '/nhapho1.jpg', '/nhapho2.jpg', '/nhapho3.jpg', '/nhapho4.jpg', '/nhapho5.jpg', '/nhapho6.jpg', '/nhapho7.jpg'],
   },
   {
     id: 2,
     title: 'Biệt Thự Sang Trọng',
-    description: 'Biệt thự cao cấp với nội thất sang trọng và hiện đại.',
-    images: [
-      'https://picsum.photos/600/400?random=4',
-      'https://picsum.photos/600/400?random=5',
-      'https://picsum.photos/600/400?random=6'
-    ],
+    description:
+      'Biệt thự phong cách tân cổ điển với nội thất cao cấp, hồ bơi ngoài trời và sân vườn xanh mát – mang đến không gian sống đẳng cấp và tiện nghi cho gia đình nhiều thế hệ.',
+    images: ['/bietthu.jpg', '/bietthu1.jpg', '/bietthu2.jpg', '/bietthu3.jpg', '/bietthu4.jpg'],
   },
   {
     id: 3,
     title: 'Công Trình Văn Phòng',
-    description: 'Văn phòng làm việc với thiết kế xanh và tiết kiệm năng lượng.',
-    images: [
-      'https://picsum.photos/600/400?random=7',
-      'https://picsum.photos/600/400?random=8',
-      'https://picsum.photos/600/400?random=9'
-    ],
+    description:
+      'Tòa nhà văn phòng tầng với thiết kế hiện đại, chú trọng đến hiệu suất năng lượng, thông gió tự nhiên, sử dụng vật liệu thân thiện với môi trường và tối ưu hóa không gian làm việc sáng tạo.',
+    images: ['/vanphong.jpg', '/vanphong1.jpg', '/vanphong2.jpg'],
   },
   {
     id: 4,
-    title: 'Dự án Nhà Phố Hiện Đại',
-    description: 'Một thiết kế nhà phố hiện đại với không gian mở.',
-    images: [
-      'https://picsum.photos/600/400?random=1',
-      'https://picsum.photos/600/400?random=2',
-      'https://picsum.photos/600/400?random=3'
-    ],
-  },
-  {
-    id: 5,
-    title: 'Biệt Thự Sang Trọng',
-    description: 'Biệt thự cao cấp với nội thất sang trọng và hiện đại.',
-    images: [
-      'https://picsum.photos/600/400?random=4',
-      'https://picsum.photos/600/400?random=5',
-      'https://picsum.photos/600/400?random=6'
-    ],
-  },
-  {
-    id: 6,
-    title: 'Công Trình Văn Phòng',
-    description: 'Văn phòng làm việc với thiết kế xanh và tiết kiệm năng lượng.',
-    images: [
-      'https://picsum.photos/600/400?random=7',
-      'https://picsum.photos/600/400?random=8',
-      'https://picsum.photos/600/400?random=9'
-    ],
+    title: 'Nhà Xưởng, Nhà Máy',
+    description:
+      'Dự án nhà xưởng quy mô lớn với kết cấu thép tiền chế, bố trí khoa học giữa khu sản xuất và kho bãi, đảm bảo hiệu quả vận hành và đáp ứng tiêu chuẩn an toàn trong công nghiệp.',
+    images: ['/nhaxuong.jpg', '/nhaxuong5.jpg', '/nhaxuong1.jpg', '/nhaxuong2.jpg', '/nhaxuong3.jpg', '/nhaxuong4.jpg', '/nhaxuong6.jpg', '/nhaxuong7.jpg'],
   }
 ];
-
 
 export default function Highlights() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -82,7 +59,7 @@ export default function Highlights() {
   };
 
   return (
-    <Box sx={{ bgcolor: '#f8f9fa', py: 8 }}  id="highlights">
+    <Box sx={{ bgcolor: '#f8f9fa', py: 8 }} id="highlights">
       <Container>
         <Typography variant="h4" textAlign="center" gutterBottom>
           Các Dự Án
@@ -95,7 +72,7 @@ export default function Highlights() {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={project.images[0]} 
+                  image={project.images[0]}
                   alt={project.title}
                 />
                 <CardContent>
@@ -121,7 +98,9 @@ export default function Highlights() {
             bgcolor: 'white',
             boxShadow: 24,
             p: 3,
-            width: { xs: '90%', sm: '70%', md: '50%' },
+            width: { xs: '95%', sm: '80%', md: '70%' },
+            maxHeight: '90vh',
+            overflowY: 'auto',
             borderRadius: 2,
           }}
         >
@@ -136,15 +115,41 @@ export default function Highlights() {
             {selectedProject?.title}
           </Typography>
 
-          <Swiper navigation modules={[Navigation]} style={{ width: '100%', height: '300px' }}   cssMode={true} // Tạo cảm giác mượt hơn trên mobile
-          pagination={{ clickable: true }}
-          mousewheel={true} // Hỗ trợ cuộn bằng chuột
-          keyboard={true} // Hỗ trợ điều khiển bằng bàn phím
-          speed={500}
-          loop={true}>
+          <Swiper
+            navigation
+            modules={[Navigation]}
+            cssMode={true}
+            pagination={{ clickable: true }}
+            mousewheel={true}
+            keyboard={true}
+            speed={500}
+            loop={true}
+            style={{ width: '100%', height: '100%' }}
+          >
             {selectedProject?.images.map((img, index) => (
               <SwiperSlide key={index}>
-                <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <Box
+                  sx={{
+                    width: '100%',
+                    height: { xs: '50vh', sm: '60vh', md: '70vh' },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#f0f0f0',
+                    borderRadius: 1,
+                    overflow: 'hidden',
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={`slide-${index}`}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                    }}
+                  />
+                </Box>
               </SwiperSlide>
             ))}
           </Swiper>
