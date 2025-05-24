@@ -1,11 +1,24 @@
 import * as React from 'react';
+import  { useState } from 'react';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
+import { Box, IconButton, Modal } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Features() {
+
+  const [selectedImage, setSelectedImage] = useState(false);
+
+  const handleOpen = () => {
+    console.log("1212")
+    setSelectedImage(true)
+  }
+  const handleClose = () => {
+    setSelectedImage(false);
+  }
+
 
   return (
 <Container id="features" sx={{ py: { xs: 2, sm: 10 } }}>
@@ -44,23 +57,78 @@ export default function Features() {
       item
       xs={12}
       md={6}
-      sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
+      sx={{ display: { xs: 'flex', sm: 'flex' }, width: '100%' , height: '100%'}}
     >
       <Card
         variant="outlined"
         sx={{
-         height: '100%',
+          height: '500px',
           width: '100%',
           display: 'flex',
-          pointerEvents: 'none',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: 2
+          padding: 2,
+          cursor: 'pointer',
+           '&:hover': {
+      boxShadow: 'none',        // Remove shadow
+      transform: 'none',        // Remove any transform
+      backgroundColor: 'inherit', // Keep original background
+            border: '1px solid rgba(214, 226, 235, 0.8)'
+    }
         }}
+       onClick={() => handleOpen()}
       >
-        <img src="/logo3.png" alt="Thiên Đăng Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+        <img src="/certificate.jpeg" alt="Thiên Đăng Logo" style={{ maxWidth: '100%', height: '100%' }} />
       </Card>
     </Grid>
+
+          {/* Modal hiển thị ảnh */}
+    <Modal open={!!selectedImage} onClose={handleClose}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            bgcolor: 'white',
+            boxShadow: 24,
+            p: 3,
+            width: { xs: '95%', sm: '80%', md: '70%' },
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            borderRadius: 2,
+          }}
+        >
+          <IconButton
+            onClick={handleClose}
+            sx={{ position: 'absolute', right: 8, top: 8 }}
+          >
+            <CloseIcon />
+          </IconButton>
+                <Box
+                  sx={{
+                    width: '100%',
+                    height: { xs: '50vh', sm: '60vh', md: '70vh' },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#f0f0f0',
+                    borderRadius: 1,
+                    overflow: 'hidden',
+                  }}
+                >
+                  <img
+                    src={"/certificate.jpeg"}
+                    alt={`slide`}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                    }}
+                  />
+                </Box>
+        </Box>
+          </Modal>
   </Grid>
 </Container>
 

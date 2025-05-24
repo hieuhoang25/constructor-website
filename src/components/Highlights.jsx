@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Container,
@@ -8,14 +8,16 @@ import {
   CardContent,
   Typography,
   Modal,
-  IconButton
+  IconButton,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { getImageListFromFirebase } from '../service/firebaseImageLoader';
 const projects = [
   {
     id: 1,
@@ -24,13 +26,13 @@ const projects = [
       'Thiết kế nhà phố tầng theo phong cách hiện đại, sử dụng tối đa ánh sáng tự nhiên, không gian mở kết nối giữa phòng khách và bếp, mang đến sự thông thoáng và tiện nghi cho gia chủ.',
     images: ['/nhapho.jpeg', '/nhapho1.jpg', '/nhapho2.jpg', '/nhapho3.jpg', '/nhapho4.jpg', '/nhapho5.jpg', '/nhapho6.jpg', '/nhapho7.jpg'],
   },
-  {
-    id: 2,
-    title: 'Biệt Thự Sang Trọng',
-    description:
-      'Biệt thự phong cách tân cổ điển với nội thất cao cấp, hồ bơi ngoài trời và sân vườn xanh mát – mang đến không gian sống đẳng cấp và tiện nghi cho gia đình nhiều thế hệ.',
-    images: ['/bietthu.jpg', '/bietthu1.jpg', '/bietthu2.jpg', '/bietthu3.jpg', '/bietthu4.jpg'],
-  },
+  // {
+  //   id: 2,
+  //   title: 'Biệt Thự Sang Trọng',
+  //   description:
+  //     'Biệt thự phong cách tân cổ điển với nội thất cao cấp, hồ bơi ngoài trời và sân vườn xanh mát – mang đến không gian sống đẳng cấp và tiện nghi cho gia đình nhiều thế hệ.',
+  //   images: ['/bietthu.jpg', '/bietthu1.jpg', '/bietthu2.jpg', '/bietthu3.jpg', '/bietthu4.jpg'],
+  // },
   {
     id: 3,
     title: 'Công Trình Văn Phòng',
@@ -47,8 +49,10 @@ const projects = [
   }
 ];
 
+
 export default function Highlights() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [imageList, setImageList] = useState([]);
 
   const handleOpen = (project) => {
     setSelectedProject(project);
@@ -57,6 +61,15 @@ export default function Highlights() {
   const handleClose = () => {
     setSelectedProject(null);
   };
+
+  useEffect(()=> {
+    const fetchImages = async () => {
+      const imagesFromFirebase = await  getImageListFromFirebase('images'); // folder name in Firebase Storage
+      setImageList(imagesFromFirebase);
+    
+    }
+      fetchImages();
+  }, [])
 
   return (
     <Box sx={{ bgcolor: '#f8f9fa', py: 8 }} id="highlights">
@@ -85,6 +98,77 @@ export default function Highlights() {
             </Grid>
           ))}
         </Grid>
+
+  { imageList.length !== 0  && <>
+    
+<Typography variant="h5" textAlign="center" sx={{ py: 2 }}>
+  Hình ảnh thực tế
+</Typography>
+
+<Box sx={{ position: 'relative', width: '100%', py: 2 }}>
+  <IconButton
+    onClick={() => {
+      document.getElementById('image-row')?.scrollBy({ left: -300, behavior: 'smooth' });
+    }}
+    sx={{
+      position: 'absolute',
+      top: '50%',
+      left: 0,
+      transform: 'translateY(-50%)',
+      zIndex: 1,
+      bgcolor: 'white',
+      '&:hover': { bgcolor: 'grey.200' },
+    }}
+  >
+    <ArrowBackIosNewIcon />
+  </IconButton>
+
+  <IconButton
+    onClick={() => {
+      document.getElementById('image-row')?.scrollBy({ left: 300, behavior: 'smooth' });
+    }}
+    sx={{
+      position: 'absolute',
+      top: '50%',
+      right: 0,
+      transform: 'translateY(-50%)',
+      zIndex: 1,
+      bgcolor: 'white',
+      '&:hover': { bgcolor: 'grey.200' },
+    }}
+  >
+    <ArrowForwardIosIcon />
+  </IconButton>
+
+  <Box
+    id="image-row"
+    sx={{
+      display: 'flex',
+      overflowX: 'hidden',
+      gap: 2,
+      px: 6,
+      scrollBehavior: 'smooth',
+    }}
+  >
+    {imageList.map((item, index) => (
+      <Box key={index} sx={{ flexShrink: 0 }}>
+        <img
+          src={item.img}
+          alt={item.title}
+          style={{
+            width: 250,
+            height: 180,
+            objectFit: 'cover',
+            borderRadius: 8,
+          }}
+        />
+      </Box>
+    ))}
+  </Box>
+</Box>
+  
+  </>}
+
       </Container>
 
       {/* Modal hiển thị ảnh */}

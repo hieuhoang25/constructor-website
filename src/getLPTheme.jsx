@@ -190,7 +190,7 @@ export default function getLPTheme(mode) {
         },
         styleOverrides: {
           root: ({ theme }) => ({
-            padding: 8,
+            // padding: 8,
             overflow: 'clip',
             backgroundColor: '#fff',
             border: '1px solid',

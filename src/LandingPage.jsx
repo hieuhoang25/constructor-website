@@ -78,6 +78,8 @@ export default function LandingPage() {
         {/* <LogoCollection /> */}
         <Features />
         <Divider />
+        {/* <Certificate/> */}
+        {/* <Divider /> */}
         <HighlightsLastYear/>
         <Divider />
         <Testimonials />
