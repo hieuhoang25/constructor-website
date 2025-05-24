@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Box,
   Container,
@@ -53,7 +53,8 @@ const projects = [
 export default function Highlights() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [imageList, setImageList] = useState([]);
-
+  const touchStartX = useRef(0);
+  const touchMoveX = useRef(0);
   const handleOpen = (project) => {
     setSelectedProject(project);
   };
@@ -140,31 +141,42 @@ export default function Highlights() {
     <ArrowForwardIosIcon />
   </IconButton>
 
-  <Box
-    id="image-row"
-    sx={{
-      display: 'flex',
-      overflowX: 'hidden',
-      gap: 2,
-      px: 6,
-      scrollBehavior: 'smooth',
-    }}
-  >
-    {imageList.map((item, index) => (
-      <Box key={index} sx={{ flexShrink: 0 }}>
-        <img
-          src={item.img}
-          alt={item.title}
-          style={{
-            width: 250,
-            height: 180,
-            objectFit: 'cover',
-            borderRadius: 8,
-          }}
-        />
-      </Box>
-    ))}
-  </Box>
+<Box
+  id="image-row"
+  sx={{
+    display: 'flex',
+    overflowX: 'hidden',
+    gap: 2,
+    px: 6,
+    scrollBehavior: 'smooth',
+  }}
+  onTouchStart={(e) => (touchStartX.current = e.touches[0].clientX)}
+  onTouchMove={(e) => (touchMoveX.current = e.touches[0].clientX)}
+  onTouchEnd={() => {
+    const delta = touchStartX.current - touchMoveX.current;
+    if (Math.abs(delta) > 50) {
+      const scrollBox = document.getElementById('image-row');
+      if (scrollBox) {
+        scrollBox.scrollBy({ left: delta > 0 ? 300 : -300, behavior: 'smooth' });
+      }
+    }
+  }}
+>
+  {imageList.map((item, index) => (
+    <Box key={index} sx={{ flexShrink: 0 }}>
+      <img
+        src={item.img}
+        alt={item.title}
+        style={{
+          width: 250,
+          height: 180,
+          objectFit: 'cover',
+          borderRadius: 8,
+        }}
+      />
+    </Box>
+  ))}
+</Box>
 </Box>
   
   </>}
