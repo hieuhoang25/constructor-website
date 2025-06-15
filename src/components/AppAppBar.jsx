@@ -104,19 +104,34 @@ function AppAppBar({ mode, toggleColorMode }) {
                 px: 0,
               }}
             >
-              <img
-                src={
-                  '/images/logomain.png'
-                }
-                style={logoStyle}
-                alt="logo of sitemark"
-              />
+                      <Box sx={{ display:'flex' , alignItems: 'center' }}>
+                <img
+                  src="/logo.png"
+                  style={{ height: 60, marginRight: 10 }}
+                  alt="Logo of Thiên Dăng"
+                />
+                <Typography
+                  variant="h7"
+                  color="#0101fd"
+                  sx={{
+                    fontWeight: 'bold',
+                    fontFamily: `'Times New Roman', Times, serif`,
+                  }}
+                >
+                  CÔNG TY TNHH KIẾN TRÚC XÂY DỰNG THIÊN ĐĂNG
+                </Typography>
+              </Box>
+
+              
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                 <MenuItem
                   onClick={() => scrollToSection('features')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body2" color="text.primary"    sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Giới thiệu
                   </Typography>
                 </MenuItem>
@@ -124,7 +139,10 @@ function AppAppBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection('testimonials')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body2" color="text.primary" sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Dịch vụ
                   </Typography>
                 </MenuItem>
@@ -132,7 +150,10 @@ function AppAppBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection('highlights')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body2" color="text.primary" sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Dự án
                   </Typography>
                 </MenuItem>
@@ -140,7 +161,10 @@ function AppAppBar({ mode, toggleColorMode }) {
                   onClick={() => scrollToSection('pricing')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography variant="body2" color="text.primary" sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Liên hệ
                   </Typography>
                 </MenuItem>
@@ -183,16 +207,28 @@ function AppAppBar({ mode, toggleColorMode }) {
                   >
 
                   </Box>
-                  <MenuItem onClick={() => scrollToSection('features')}>
+                  <MenuItem onClick={() => scrollToSection('features')}  sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Giới thiệu
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('testimonials')}>
+                  <MenuItem onClick={() => scrollToSection('testimonials')}  sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Dịch vụ
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('highlights')}>
+                  <MenuItem onClick={() => scrollToSection('highlights')} sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Dự án
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('pricing')}>
+                  <MenuItem onClick={() => scrollToSection('pricing')} sx={{
+                    fontWeight: 'bold',
+                    // fontFamily: `'Times New Roman', Times, serif`,
+                  }}>
                     Liên hệ
                   </MenuItem>
                   
