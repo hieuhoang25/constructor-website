@@ -10,11 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@mui/styles';
-const logoStyle = {
-  width: '200px',
-  height: 'auto',
-  cursor: 'pointer',
-};
+
 
 
 
