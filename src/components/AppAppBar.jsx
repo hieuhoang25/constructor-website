@@ -103,7 +103,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       <Box sx={{ display:'flex' , alignItems: 'center' }}>
                 <img
                   src="/logo.png"
-                  style={{ height: 60, marginRight: 10 }}
+                  style={{ height: 60 }}
                   alt="Logo of Thiên Dăng"
                 />
                 <Typography
