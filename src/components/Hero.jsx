@@ -7,7 +7,7 @@ import { makeStyles } from '@mui/styles';
 const images = [
   // Add your image URLs or components here
   '/image1.jpg',
-  '/image2.jpg',
+  // '/image2.jpg',
   '/image5.png'
 ];
 
